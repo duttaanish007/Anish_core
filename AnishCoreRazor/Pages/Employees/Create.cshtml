@@ -1,0 +1,89 @@
+﻿@page
+@model AnishCoreRazor.Pages.Employees.CreateModel
+
+
+@if (Model == null)
+{
+    <form method="post">
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">Create Employee</h2>
+                <hr />
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Employee.Name">Employee Name</label>
+                <input asp-for="Employee.Name" type="text" class="form-control" required />
+                <span asp-validation-for="Employee.Name" class="text-danger-emphasis"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Employee.email">Employee Email</label>
+                <input asp-for="Employee.email" type="email" class="form-control" required />
+                <span asp-validation-for="Employee.email" class="text-danger-emphasis"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Employee.phone">Employee Phone</label>
+                <input asp-for="Employee.phone" type="text" class="form-control" required />
+                <span asp-validation-for="Employee.phone" class="text-danger-emphasis"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Employee.city">Employee City</label>
+                <input asp-for="Employee.city" type="text" class="form-control" />
+                <span asp-validation-for="Employee.city" class="text-danger-emphasis"></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:150px;">Create</button>
+            <a asp-page="/Employees/Index" class="btn btn-primary" style="width:150px;">Back To List</a>
+        </div>
+    </form>
+}
+else
+{
+    <form method="post">
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">Edit Employee</h2>
+                <hr />
+            </div>
+
+            <!-- Hidden Input for Emp_Id -->
+            <input type="hidden" asp-for="Employee.Emp_Id" />
+
+            <div class="mb-3">
+                <label asp-for="Employee.Name">Employee Name</label>
+                <input asp-for="Employee.Name" type="text" class="form-control" required />
+                <span asp-validation-for="Employee.Name" class="text-danger-emphasis"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Employee.email">Employee Email</label>
+                <input asp-for="Employee.email" type="email" class="form-control" required />
+                <span asp-validation-for="Employee.email" class="text-danger-emphasis"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Employee.phone">Employee Phone</label>
+                <input asp-for="Employee.phone" type="text" class="form-control" required />
+                <span asp-validation-for="Employee.phone" class="text-danger-emphasis"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Employee.city">Employee City</label>
+                <input asp-for="Employee.city" type="text" class="form-control" />
+                <span asp-validation-for="Employee.city" class="text-danger-emphasis"></span>
+
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:150px;">Create</button>
+            <a asp-page="/Employees/Index" class="btn btn-primary" style="width:150px;">Back To List</a>
+        </div>
+    </form>
+
+}
+
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

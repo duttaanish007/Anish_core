@@ -10,6 +10,7 @@ namespace Anish_core.Data
             
         }
         public DbSet<Catagory>Catagories { get; set; }
+        public DbSet<Employee>Employees { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -17,6 +18,12 @@ namespace Anish_core.Data
                 new Catagory { Catagory_Id = 1, Name = "Anish", DisplayOrder = 1 },
                 new Catagory { Catagory_Id = 2, Name = "Uttara", DisplayOrder = 2 },
                 new Catagory { Catagory_Id = 3, Name = "Mau", DisplayOrder = 3 }
+                );
+
+            modelBuilder.Entity<Employee>().HasData(
+                new Employee { Emp_Id = 1, Name = "Uttara", email = "uttara@gmail.com", phone = "8017723391", city = "Kolkata" },
+                new Employee { Emp_Id = 2, Name = "Anish", email = "anish@gmail.com", phone = "8012458796", city = "Kolkata" },
+                new Employee { Emp_Id = 3, Name = "Kau", email = "Kau@gmail.com", phone = "8045875985", city = "Kolkata" }
                 );
         }
     }

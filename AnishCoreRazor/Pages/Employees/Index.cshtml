@@ -1,0 +1,64 @@
+﻿@page
+@model AnishCoreRazor.Pages.Employees.IndexModel
+
+
+@{
+    int i = 0;
+}
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h1>Employees List</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-page="/Employees/Create" class="btn btn-primary">Create new Employee</a>
+        </div>
+    </div>
+
+
+    <table class="table table-bordered t able-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>
+                    Employee Name
+                </th>
+                <th>
+                    Employee Email
+                </th>
+                <th>
+                    Employee Phone
+                </th>
+                <th>
+                    Employee City
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var items in Model.EmployeeList.OrderByDescending(obj => obj.Name))
+            {
+                <tr>
+                    <td>@(++i)</td>
+                    <td>@items.Name</td>
+                    <td>@items.email</td>
+                    <td>@items.phone</td>
+                    <td>@items.city</td>
+                    <td>
+                        <div class=" btn-group" role="group">
+                            <a asp-page="/Employees/Create" asp-route-Id="@items.Emp_Id" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i>Edit
+                            </a>
+                            <a asp-page="/Employees/Delete" asp-route-Id="@items.Emp_Id" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash3-fill"></i>Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
